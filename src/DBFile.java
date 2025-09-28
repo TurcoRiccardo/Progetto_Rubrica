@@ -1,4 +1,3 @@
-package rubrica;
 import java.io.*;
 import java.util.*;
 

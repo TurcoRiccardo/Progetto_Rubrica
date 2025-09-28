@@ -1,4 +1,3 @@
-package rubrica;
 
 
 public class Persona {
