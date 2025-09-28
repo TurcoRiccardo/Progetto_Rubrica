@@ -1,4 +1,4 @@
-package src;
+package rubrica;
 
 
 public class Utente {

@@ -1,4 +1,4 @@
-package src;
+package rubrica;
 import java.util.Vector;
 import javax.swing.SwingUtilities;
 
