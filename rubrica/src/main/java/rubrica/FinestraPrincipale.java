@@ -41,17 +41,9 @@ public class FinestraPrincipale extends JFrame {
         JButton nuovoBtn = new JButton("Nuovo");
         JButton modificaBtn = new JButton("Modifica");
         JButton eliminaBtn = new JButton("Elimina");
-
-
-        // Carica le icone
         nuovoBtn.setIcon(Utility.caricaIcona("icons/nuovo.png", 24, 24));
         modificaBtn.setIcon(Utility.caricaIcona("icons/modifica.png", 24, 24));
         eliminaBtn.setIcon(Utility.caricaIcona("icons/elimina.png", 24, 24));
-
-
-        nuovoBtn.setIcon(new ImageIcon("icons/nuovo.png"));
-        modificaBtn.setIcon(new ImageIcon("icons/modifica.png"));
-        eliminaBtn.setIcon(new ImageIcon("icons/elimina.png"));
         toolBar.add(nuovoBtn);
         toolBar.add(modificaBtn);
         toolBar.add(eliminaBtn);
@@ -62,7 +54,7 @@ public class FinestraPrincipale extends JFrame {
         //this.add(buttonPanel, BorderLayout.SOUTH);
         this.add(toolBar, BorderLayout.NORTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(700, 500);
+        this.setSize(800, 600);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 

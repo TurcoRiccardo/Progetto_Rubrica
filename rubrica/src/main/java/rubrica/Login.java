@@ -22,19 +22,28 @@ public class Login extends JFrame {
         passwordField = new JPasswordField();
         panel.add(passwordField);
 
+        /*
         //Bottoni
         JPanel buttonPanel = new JPanel();
         JButton loginBtn = new JButton("LOGIN");
         buttonPanel.add(loginBtn);
+        */
+
+        //ToolBar
+        JToolBar toolBar = new JToolBar();
+        JButton loginBtn = new JButton("LOGIN");
+        toolBar.add(loginBtn);
 
         //Layout
         this.setLayout(new BorderLayout());
         this.add(panel, BorderLayout.CENTER);
-        this.add(buttonPanel, BorderLayout.SOUTH);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.add(buttonPanel, BorderLayout.SOUTH);
+        this.add(toolBar, BorderLayout.SOUTH);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setPreferredSize(new Dimension(400, 200));
         this.pack();
         this.setLocationRelativeTo(null);
-        setVisible(true);
+        this.setVisible(true);
 
         //azioni
         loginBtn.addActionListener(e -> login(utenti, rubrica));

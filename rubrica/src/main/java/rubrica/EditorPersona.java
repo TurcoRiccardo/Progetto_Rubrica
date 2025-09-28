@@ -30,21 +30,33 @@ public class EditorPersona extends JDialog {
         etaField = new JTextField(persona != null ? String.valueOf(persona.getEta()) : "");
         panel.add(etaField);
 
+        /*
         //Bottoni
         JPanel buttonPanel = new JPanel();
         JButton salvaBtn = new JButton("Salva");
         JButton annullaBtn = new JButton("Annulla");
         buttonPanel.add(salvaBtn);
         buttonPanel.add(annullaBtn);
+        */
+
+        //ToolBar
+        JToolBar toolBar = new JToolBar();
+        JButton salvaBtn = new JButton("Salva");
+        JButton annullaBtn = new JButton("Annulla");
+        toolBar.add(salvaBtn);
+        toolBar.add(annullaBtn);
+
 
         //Layout
         this.setLayout(new BorderLayout());
         this.add(panel, BorderLayout.CENTER);
-        this.add(buttonPanel, BorderLayout.SOUTH);
+        //this.add(buttonPanel, BorderLayout.SOUTH);
+        this.add(toolBar, BorderLayout.NORTH);
+        this.setPreferredSize(new Dimension(500, 300));
         this.pack();
         this.setLocationRelativeTo(owner);
 
-        //Azioni
+        //Azion i
         salvaBtn.addActionListener(e -> {
             try {
                 int eta = Integer.parseInt(etaField.getText());
