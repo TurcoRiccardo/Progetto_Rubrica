@@ -55,11 +55,12 @@ public class EditorPersona extends JDialog {
         this.pack();
         this.setLocationRelativeTo(owner);
 
-        //Azion i
+        //Azioni
         salvaBtn.addActionListener(e -> {
             try {
                 int eta = Integer.parseInt(etaField.getText());
                 String nome = nomeField.getText();
+                int id = (this.persona != null) ? this.persona.getId() : -1;
                 if (nome == null || nome.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(this, "È obbligatorio inserire il nome", "Errore", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -69,6 +70,7 @@ public class EditorPersona extends JDialog {
                     return;
                 }
                 this.persona = new Persona(
+                    id,
                     nome,
                     cognomeField.getText(),
                     indirizzoField.getText(),

@@ -60,13 +60,18 @@ public class Login extends JFrame {
                 break;
             }
         }
-        if (loggedIn) {
+        if ((Main.dbSQLMode && UtenteDAO.verificaLogin(username, password)) || (!Main.dbSQLMode && loggedIn)) {
             //Login corretto, carico rubrica
-            rubrica.addAll(DBFile.caricaRubrica());
-            DBFile.salvaRubrica2(rubrica);
+            if (Main.dbSQLMode) {
+                rubrica.addAll(PersonaDAO.getRubrica());
+            }
+            else {
+                rubrica.addAll(DBFile.caricaRubrica());
+                DBFile.salvaRubrica2(rubrica);
+            }
             new FinestraPrincipale(rubrica);
             dispose();
-        } 
+        }
         else {
             JOptionPane.showMessageDialog(this, "Login errato", "Errore", JOptionPane.ERROR_MESSAGE);
         }

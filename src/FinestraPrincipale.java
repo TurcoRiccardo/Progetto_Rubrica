@@ -64,8 +64,14 @@ public class FinestraPrincipale extends JFrame {
             if (p != null) {
                 rubrica.add(p);
                 tableModel.addRow(new Object[]{p.getNome(), p.getCognome(), p.getTelefono()});
-                DBFile.salvaRubrica1(rubrica);
-                DBFile.salvaRubrica2(rubrica);
+                if (Main.dbSQLMode) {
+                    int id = PersonaDAO.aggiungiPersona(p);
+                    p.setId(id);
+                }
+                else {
+                    DBFile.salvaRubrica1(rubrica);
+                    DBFile.salvaRubrica2(rubrica);
+                }
             }
         });
 
@@ -80,8 +86,13 @@ public class FinestraPrincipale extends JFrame {
                     tableModel.setValueAt(updated.getNome(), selectedRow, 0);
                     tableModel.setValueAt(updated.getCognome(), selectedRow, 1);
                     tableModel.setValueAt(updated.getTelefono(), selectedRow, 2);
-                    DBFile.salvaRubrica1(rubrica);
-                    DBFile.salvaRubrica2(rubrica);
+                    if (Main.dbSQLMode) {
+                        PersonaDAO.aggiornaPersona(p.getId(), updated);
+                    }
+                    else {
+                        DBFile.salvaRubrica1(rubrica);
+                        DBFile.salvaRubrica2(rubrica);
+                    }
                 }
             } 
             else {
@@ -101,8 +112,13 @@ public class FinestraPrincipale extends JFrame {
                 if (conferma == JOptionPane.YES_OPTION) {
                     rubrica.remove(selectedRow);
                     tableModel.removeRow(selectedRow);
-                    DBFile.salvaRubrica1(rubrica);
-                    DBFile.salvaRubrica2(rubrica);
+                    if (Main.dbSQLMode) {
+                        PersonaDAO.eliminaPersona(p.getId());
+                    }
+                    else {
+                        DBFile.salvaRubrica1(rubrica);
+                        DBFile.salvaRubrica2(rubrica);
+                    }
                 }
             } 
             else {
